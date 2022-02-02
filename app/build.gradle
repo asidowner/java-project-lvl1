@@ -16,6 +16,14 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+compileJava {
+    options.release = 16
+}
+
 dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
