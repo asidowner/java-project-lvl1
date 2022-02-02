@@ -4,4 +4,4 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: make build
+      - run: ./gradlew clean build
