@@ -5,4 +5,4 @@
 
 [![Build Status](https://github.com/asidowner/java-project-lvl1/workflows/build-project/badge.svg)](https://github.com/asidowner/java-project-lvl1/actions)
 
-[Game session example](https://asciinema.org/a/uCDyWSQDMdYzn033Ehyh4OMmH)
+[![asciicast](https://asciinema.org/a/3mZya8fnm6mJ00tEC9D8FEqlx.svg)](https://asciinema.org/a/3mZya8fnm6mJ00tEC9D8FEqlx)

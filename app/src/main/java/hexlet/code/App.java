@@ -1,38 +1,47 @@
 package hexlet.code;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        getGameList(); // Получаем список игр
-        chooseGame(); // Выбираем игру
-    }
-
-    public static void getGameList() {
-        Map<Integer, String> games = new LinkedHashMap<>();
-
-        games.put(1, "Greet");
-        games.put(2, "Even");
-        games.put(0, "Exit");
+        String[] games = {"Exit", "Greet", "Even", "Calc"};
 
         System.out.println("Please enter the game number and press Enter.");
-        for (Integer key : games.keySet()) {
-            System.out.printf("%s - %s\n", key, games.get(key));
+
+        for (int i = 1; i < games.length; i++) {
+            System.out.printf("%s - %s\n", i, games[i]);
         }
+
+        int index = 0;
+        System.out.printf("%s - %s\n", index, games[index]);
         System.out.print("Your choice: ");
+
+        Scanner scanner = new Scanner(System.in);
+        final int gameId = scanner.nextInt();
+
+        try {
+            startGame(games[gameId]);
+        } catch (IndexOutOfBoundsException ignored) {
+        }
     }
 
-    public static void chooseGame() {
-        Scanner scanner = new Scanner(System.in);
+    private static void startGame(String gameName) {
+        Engine game;
 
-        int choseGame = scanner.nextInt();
-
-        if (choseGame != 0) { // 0 - Exit
-            String name = Cli.greet(scanner);
-            if (choseGame == 2) {
-                Even.game(scanner, name);
+        switch (gameName) {
+            case "Greet" -> Cli.greet();
+            case "Even" -> {
+                game = new Even();
+                game.startGame();
+            }
+            case "Calc" -> {
+                game = new Calc();
+                game.startGame();
+            }
+            default -> {
             }
         }
     }
