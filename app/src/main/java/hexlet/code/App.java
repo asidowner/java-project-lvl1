@@ -4,12 +4,13 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression"};
+        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
 
         System.out.println("Please enter the game number and press Enter.");
 
@@ -49,6 +50,10 @@ public class App {
             }
             case "Progression" -> {
                 game = new Progression();
+                System.out.println(game.startGame());
+            }
+            case "Prime" -> {
+                game = new Prime();
                 System.out.println(game.startGame());
             }
             default -> {
