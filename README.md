@@ -5,4 +5,4 @@
 
 [![Build Status](https://github.com/asidowner/java-project-lvl1/workflows/build-project/badge.svg)](https://github.com/asidowner/java-project-lvl1/actions)
 
-[![asciicast](https://asciinema.org/a/3mZya8fnm6mJ00tEC9D8FEqlx.svg)](https://asciinema.org/a/3mZya8fnm6mJ00tEC9D8FEqlx)
+[![asciicast](https://asciinema.org/a/3Cjkxajv1gtpoYKLvVOix6saE.svg)](https://asciinema.org/a/3Cjkxajv1gtpoYKLvVOix6saE)
