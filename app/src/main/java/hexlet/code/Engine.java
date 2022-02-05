@@ -110,9 +110,30 @@ public interface Engine {
         return Math.abs(random.nextInt(MAX_RANGE_FOR_NUMBER));
     }
 
+    default int getRandomPositiveNumber(int range) {
+        Random random = new Random();
+        return Math.abs(random.nextInt(range));
+    }
+
     default String getRandomOperator() {
         Random random = new Random();
         String[] operators = {"+", "-", "*"};
         return operators[Math.abs(random.nextInt(operators.length - 1))];
+    }
+
+    default int[] getArithmeticProgression() {
+        final int range = MAX_RANGE_FOR_NUMBER / 10;
+        final int incrementRange = MAX_RANGE_FOR_NUMBER / 4;
+        final int minArrayRange = 5;
+
+        int increment = getRandomPositiveNumber(incrementRange);
+        int[] progression = new int[getRandomPositiveNumber(range) + minArrayRange];
+        int firstNumber = getRandomPositiveNumber(range);
+
+        for (int i = 0; i <  progression.length; i++) {
+            progression[i] = firstNumber + i * increment;
+        }
+
+        return progression;
     }
 }
