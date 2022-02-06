@@ -5,6 +5,14 @@
 
 [![Build Status](https://github.com/asidowner/java-project-lvl1/workflows/build-project/badge.svg)](https://github.com/asidowner/java-project-lvl1/actions)
 
+### Описание
+В приложении реализованы следующие консольные игры:
+
+1. Even - "Это четное число?";
+2. Calc - "Какой результат?";
+3. GCD - "Чему равен НОД?";
+4. Progression - "Какой элемент скрыт?";
+5. Prime - "Это простое число?"
 
 ### Пример игры
 [![asciicast](https://asciinema.org/a/JZcZwnAtX5XPqAOqDQCmzqmTE.svg)](https://asciinema.org/a/JZcZwnAtX5XPqAOqDQCmzqmTE)
