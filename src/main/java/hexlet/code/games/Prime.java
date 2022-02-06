@@ -11,7 +11,7 @@ public class Prime {
 
     public static HashMap<String, String> getQuestions(int rounds) {
         HashMap<String, String> questions = new HashMap<>();
-        final int range = 500;
+        final int range = 100;
         for (int i = 0; i < rounds; i++) {
             int question = Engine.getRandomPositiveNumber(range);
             String answer = Engine.isPrime(question) ? "yes" : "no";
