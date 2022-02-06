@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Cli {
 
-    public static String greet() {
+    public static void greet() {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
 
@@ -12,6 +12,5 @@ public class Cli {
         String name = scanner.next();
 
         System.out.printf("Hello, %s!\n", name);
-        return name;
     }
 }
