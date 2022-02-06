@@ -5,4 +5,6 @@
 
 [![Build Status](https://github.com/asidowner/java-project-lvl1/workflows/build-project/badge.svg)](https://github.com/asidowner/java-project-lvl1/actions)
 
+
+### Пример игры
 [![asciicast](https://asciinema.org/a/JZcZwnAtX5XPqAOqDQCmzqmTE.svg)](https://asciinema.org/a/JZcZwnAtX5XPqAOqDQCmzqmTE)
