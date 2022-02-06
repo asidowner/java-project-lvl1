@@ -72,7 +72,7 @@ public final class Engine {
     }
 
     private static String checkQuestions(HashMap<String, String> questions) {
-        String result = "";
+        String result = "Congratulations, %s!\n";
         Scanner scanner = new Scanner(System.in);
 
         for (String question : questions.keySet()) {
@@ -83,13 +83,13 @@ public final class Engine {
 
             if (!expectedAnswer.equals(answer)) {
                 System.out.printf("%s is wrong answer ;(. Correct answer was %s.\n", answer, expectedAnswer);
-                result = "Let's try again, %s!";
+                result = "Let's try again, %s!\n";
                 break;
             }
             System.out.println("Correct!");
         }
 
-        return result.equals("") ? "Congratulations, %s!" : result;
+        return result;
     }
 
     public static int getRandomPositiveNumber(int range) {
