@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 public final class Engine {
 
@@ -9,8 +8,7 @@ public final class Engine {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
 
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.next();
+        String name = Utils.getNextInput();
 
         System.out.printf("Hello, %s!\n", name);
 
@@ -19,7 +17,7 @@ public final class Engine {
         for (String question : questions.keySet()) {
             System.out.printf("Question: %s\nYour answer: ", question);
 
-            String answer = scanner.next();
+            String answer = Utils.getNextInput();
             String expectedAnswer = questions.get(question);
 
             if (!expectedAnswer.equals(answer)) {
