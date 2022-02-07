@@ -1,36 +1,42 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 import java.util.Random;
 
 public class Calc {
-    public static HashMap<String, String> getQuestions(int rounds) {
+    public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
+
+        final int rounds = 3;
         for (int i = 0; i < rounds; i++) {
-            final int range = 50;
-            int firstNumber = Engine.getRandomPositiveNumber(range);
-            int secondNumber = Engine.getRandomPositiveNumber(range);
-
-            String operator = getRandomOperator();
-
-            int sum = switch (operator) {
-                case "+" -> firstNumber + secondNumber;
-                case "-" -> firstNumber - secondNumber;
-                case "*" -> firstNumber * secondNumber;
-                default -> 0;
-            };
-
-            String question = firstNumber + " " + operator + " " + secondNumber;
-            questions.put(question, String.valueOf(sum));
+            generateRoundData(questions);
         }
-        return questions;
+
+        final String rule = "What is the result of the expression?";
+        Engine.initGame(rule, questions);
     }
 
-    public static String getRule() {
-        return "What is the result of the expression?";
+    private static void generateRoundData(HashMap<String, String> data) {
+        final int range = 50;
+        int firstNumber = Utils.getRandomPositiveNumber(range);
+        int secondNumber = Utils.getRandomPositiveNumber(range);
+
+        String operator = getRandomOperator();
+
+        int sum = switch (operator) {
+            case "+" -> firstNumber + secondNumber;
+            case "-" -> firstNumber - secondNumber;
+            case "*" -> firstNumber * secondNumber;
+            default -> 0;
+        };
+
+        String question = firstNumber + " " + operator + " " + secondNumber;
+        data.put(question, String.valueOf(sum));
     }
+
 
     private static String getRandomOperator() {
         Random random = new Random();

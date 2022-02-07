@@ -1,23 +1,41 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 
 public class Prime {
-    public static String getRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void startGame() {
+        HashMap<String, String> questions = new HashMap<>();
+
+        final int rounds = 3;
+        for (int i = 0; i < rounds; i++) {
+            generateRoundData(questions);
+        }
+
+        final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+        Engine.initGame(rule, questions);
     }
 
-    public static HashMap<String, String> getQuestions(int rounds) {
-        HashMap<String, String> questions = new HashMap<>();
+    private static void generateRoundData(HashMap<String, String> data) {
         final int range = 100;
-        for (int i = 0; i < rounds; i++) {
-            int question = Engine.getRandomPositiveNumber(range);
-            String answer = Engine.isPrime(question) ? "yes" : "no";
 
-            questions.put(String.valueOf(question), answer);
+        int question = Utils.getRandomPositiveNumber(range);
+        String answer = isPrime(question) ? "yes" : "no";
+
+        data.put(String.valueOf(question), answer);
+    }
+
+    private static boolean isPrime(int number) {
+        boolean result = true;
+        for (int i = 2; i * i <= number; i++) {
+            if (number % i == 0) {
+                result = false;
+                break;
+            }
         }
-        return questions;
+        return result;
     }
 }
