@@ -1,23 +1,28 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.HashMap;
 
 public class Even {
-    public static HashMap<String, String> getQuestions(int count) {
+    public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
-        final int range = 100;
-        for (int i = 0; i < count; i++) {
-            int askingNumber = Engine.getRandomPositiveNumber(range);
-            questions.put(
-                    String.valueOf(askingNumber),
-                    askingNumber % 2 == 0 ? "yes" : "no");
+
+        final int round = 3;
+        for (int i = 0; i < round; i++) {
+            generateRoundData(questions);
         }
-        return questions;
+
+        final String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.initGame(rule, questions);
     }
 
-    public static String getRule() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static void generateRoundData(HashMap<String, String> data) {
+        final int range = 100;
+
+        int question = Utils.getRandomPositiveNumber(range);
+        String answer = question % 2 == 0 ? "yes" : "no";
+        data.put(String.valueOf(question), answer);
     }
 }
