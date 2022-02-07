@@ -10,8 +10,7 @@ public class Calc {
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        final int rounds = 3;
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < Engine.getRoundsCount(); i++) {
             generateRoundData(questions);
         }
 

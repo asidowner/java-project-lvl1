@@ -9,8 +9,7 @@ public class Even {
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        final int round = 3;
-        for (int i = 0; i < round; i++) {
+        for (int i = 0; i < Engine.getRoundsCount(); i++) {
             generateRoundData(questions);
         }
 

@@ -11,8 +11,7 @@ public class GCD {
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        final int rounds = 3;
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < Engine.getRoundsCount(); i++) {
             generateRoundData(questions);
         }
 
@@ -26,7 +25,10 @@ public class GCD {
         int firstNumber = Utils.getRandomPositiveNumber(range);
         int secondNumber = Utils.getRandomPositiveNumber(range);
 
-        int answer = getGCD(firstNumber, secondNumber);
+        int[] firstArray = getIntegerFactorization(firstNumber);
+        int[] secondArray = getIntegerFactorization(secondNumber);
+
+        int answer = getGCD(firstArray, secondArray);
 
         data.put(firstNumber + " " + secondNumber, String.valueOf(answer));
     }
@@ -42,29 +44,19 @@ public class GCD {
         return result;
     }
 
-    private static int getGCD(int firstNumber, int secondNumber) {
-
-        int[] firstArray = getIntegerFactorization(firstNumber);
-        int[] secondArray = getIntegerFactorization(secondNumber);
-
-        int[] gcdByPrime = new int[0];
+    private static int getGCD(int[] firstArray, int[] secondArray) {
+        int result = 1;
 
         for (int k : firstArray) {
             for (int j = 0; j < secondArray.length; j++) {
                 if (secondArray[j] == k) {
-                    gcdByPrime = ArrayUtils.add(gcdByPrime, secondArray[j]);
+                    result *= secondArray[j];
                     secondArray = ArrayUtils.remove(secondArray, j);
                     break;
                 }
             }
         }
 
-        int result = 1;
-        if (gcdByPrime.length > 0) {
-            for (int prime : gcdByPrime) {
-                result *= prime;
-            }
-        }
         return result;
     }
 

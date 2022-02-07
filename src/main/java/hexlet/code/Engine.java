@@ -30,4 +30,9 @@ public final class Engine {
 
         System.out.printf("Congratulations, %s!\n", name);
     }
+
+    public static int getRoundsCount() {
+        final int roundsCount = 3;
+        return roundsCount;
+    }
 }
