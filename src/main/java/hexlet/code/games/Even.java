@@ -18,7 +18,7 @@ public class Even {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 100;
+        final int range = 50;
 
         int question = Utils.getRandomPositiveNumber(range);
         String answer = question % 2 == 0 ? "yes" : "no";

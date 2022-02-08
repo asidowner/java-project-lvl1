@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Utils {
     public static int getRandomPositiveNumber(int range) {
         Random random = new Random();
-        return Math.abs(random.nextInt(range));
+        return Math.abs(random.nextInt(range) - random.nextInt(range) + random.nextInt(range));
     }
 
     public static String getNextInput() {

@@ -20,7 +20,7 @@ public class GCD {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 1000;
+        final int range = 500;
 
         int firstNumber = Utils.getRandomPositiveNumber(range);
         int secondNumber = Utils.getRandomPositiveNumber(range);
