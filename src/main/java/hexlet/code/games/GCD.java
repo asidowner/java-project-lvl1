@@ -11,7 +11,7 @@ public class GCD {
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        for (int i = 0; i < Engine.getRoundsCount(); i++) {
+        while (questions.size() < Engine.getRoundsCount()) {
             generateRoundData(questions);
         }
 
