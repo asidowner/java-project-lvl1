@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.HashMap;
 
 public final class Engine {
+    public static final int ROUNDS = 3;
 
     public static void initGame(String rule, HashMap<String, String> questions) {
         System.out.println("\nWelcome to the Brain Games!");
@@ -29,10 +30,5 @@ public final class Engine {
         }
 
         System.out.printf("Congratulations, %s!\n", name);
-    }
-
-    public static int getRoundsCount() {
-        final int roundsCount = 3;
-        return roundsCount;
     }
 }

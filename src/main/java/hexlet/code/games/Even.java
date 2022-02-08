@@ -6,15 +6,16 @@ import hexlet.code.Utils;
 import java.util.HashMap;
 
 public class Even {
+    private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        while (questions.size() < Engine.getRoundsCount()) {
+        while (questions.size() < Engine.ROUNDS) {
             generateRoundData(questions);
         }
 
-        final String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        Engine.initGame(rule, questions);
+        Engine.initGame(RULE, questions);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {

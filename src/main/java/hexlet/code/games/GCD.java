@@ -7,16 +7,16 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.HashMap;
 
 public class GCD {
+    private static final String RULE = "Find the greatest common divisor of given numbers.";
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        while (questions.size() < Engine.getRoundsCount()) {
+        while (questions.size() < Engine.ROUNDS) {
             generateRoundData(questions);
         }
 
-        final String rule = "Find the greatest common divisor of given numbers.";
-        Engine.initGame(rule, questions);
+        Engine.initGame(RULE, questions);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {

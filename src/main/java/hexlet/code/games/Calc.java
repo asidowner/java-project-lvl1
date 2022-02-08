@@ -7,15 +7,16 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Calc {
+    private static final String RULE = "What is the result of the expression?";
+
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
 
-        while (questions.size() < Engine.getRoundsCount()) {
+        while (questions.size() < Engine.ROUNDS) {
             generateRoundData(questions);
         }
 
-        final String rule = "What is the result of the expression?";
-        Engine.initGame(rule, questions);
+        Engine.initGame(RULE, questions);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
