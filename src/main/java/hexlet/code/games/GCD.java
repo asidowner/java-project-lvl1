@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.HashMap;
 
@@ -25,69 +24,16 @@ public class GCD {
         int firstNumber = Utils.getRandomPositiveNumber(range);
         int secondNumber = Utils.getRandomPositiveNumber(range);
 
-        int[] firstArray = getIntegerFactorization(firstNumber);
-        int[] secondArray = getIntegerFactorization(secondNumber);
+        int answer = 1;
 
-        int answer = getGCD(firstArray, secondArray);
+        for (int i = 1; i <= Math.min(firstNumber, secondNumber); i++) {
+            if (firstNumber % i == 0 && secondNumber % i == 0) {
+                answer = i;
+            }
+        }
 
         data.put(firstNumber + " " + secondNumber, String.valueOf(answer));
     }
 
-    private static boolean isPrime(int number) {
-        boolean result = true;
-        for (int i = 2; i * i <= number; i++) {
-            if (number % i == 0) {
-                result = false;
-                break;
-            }
-        }
-        return result;
-    }
-
-    private static int getGCD(int[] firstArray, int[] secondArray) {
-        int result = 1;
-
-        for (int k : firstArray) {
-            for (int j = 0; j < secondArray.length; j++) {
-                if (secondArray[j] == k) {
-                    result *= secondArray[j];
-                    secondArray = ArrayUtils.remove(secondArray, j);
-                    break;
-                }
-            }
-        }
-
-        return result;
-    }
-
-    private static int[] getIntegerFactorization(int number) {
-        int[] primeList = getPrimeNumbersList(number);
-        int tmp = number;
-        int[] result = new int[0];
-
-        while (tmp > 1) {
-            for (int prime : primeList) {
-                if (tmp % prime == 0) {
-                    tmp /= prime;
-                    result = ArrayUtils.add(result, prime);
-                    break;
-                }
-            }
-        }
-
-        return result;
-    }
-
-    private static int[] getPrimeNumbersList(int range) {
-        int[] primeList = new int[0];
-
-        for (int i = 2; i <= range; i++) {
-            if (isPrime(i)) {
-                primeList = ArrayUtils.add(primeList, i);
-            }
-        }
-
-        return primeList;
-    }
 
 }
