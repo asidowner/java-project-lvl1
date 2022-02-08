@@ -6,6 +6,8 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Prime;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -18,7 +20,8 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        final String choice = Utils.getNextInput();
+        Scanner scanner = new Scanner(System.in);
+        final String choice = scanner.next();
         switch (choice) {
             case "1" -> Cli.greet();
             case "2" -> Even.startGame();
@@ -26,9 +29,11 @@ public class App {
             case "4" -> GCD.startGame();
             case "5" -> Progression.startGame();
             case "6" -> Prime.startGame();
+            case "0" -> System.out.println("Goodbye");
             default -> {
+                System.out.println("You entered an unknown game number. Let's try again.");
             }
         }
-
+        scanner.close();
     }
 }

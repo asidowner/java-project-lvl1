@@ -4,10 +4,11 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class Calc {
     private static final String RULE = "What is the result of the expression?";
+    private static final int RANGE = 50;
+    private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
@@ -20,27 +21,28 @@ public class Calc {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 50;
-        int firstNumber = Utils.getRandomPositiveNumber(range);
-        int secondNumber = Utils.getRandomPositiveNumber(range);
+        int firstNumber = Utils.getRandomPositiveNumber(RANGE);
+        int secondNumber = Utils.getRandomPositiveNumber(RANGE);
 
-        String operator = getRandomOperator();
+        char operator = getRandomOperator();
 
-        int sum = switch (operator) {
-            case "+" -> firstNumber + secondNumber;
-            case "-" -> firstNumber - secondNumber;
-            case "*" -> firstNumber * secondNumber;
-            default -> 0;
-        };
+        int sum = calculate(firstNumber, secondNumber, operator);
 
         String question = firstNumber + " " + operator + " " + secondNumber;
         data.put(question, String.valueOf(sum));
     }
 
 
-    private static String getRandomOperator() {
-        Random random = new Random();
-        String[] operators = {"+", "-", "*"};
-        return operators[Math.abs(random.nextInt(operators.length - 1))];
+    private static char getRandomOperator() {
+        return OPERATORS[Utils.getRandomPositiveNumber(OPERATORS.length - 1)];
+    }
+
+    private static int calculate(int firstNumber, int secondNumber, char operator) {
+        return switch (operator) {
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
+            case '*' -> firstNumber * secondNumber;
+            default -> 0;
+        };
     }
 }

@@ -7,6 +7,9 @@ import java.util.HashMap;
 
 public class Progression {
     private static final String RULE = "What number is missing in the progression?";
+    private static final int RANGE = 100;
+    private static final int INCREMENT_RANGE = RANGE / 4;
+    private static final int ARRAY_RANGE = 10;
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
@@ -34,13 +37,9 @@ public class Progression {
 
 
     private static int[] getArithmeticProgression() {
-        final int range = 100;
-        final int incrementRange = range / 4;
-        final int arrayRange = 10;
-
-        int increment = Utils.getRandomPositiveNumber(incrementRange) + Utils.getRandomPositiveNumber(incrementRange);
-        int[] progression = new int[arrayRange];
-        int firstNumber = Utils.getRandomPositiveNumber(range);
+        int increment = Utils.getRandomPositiveNumber(INCREMENT_RANGE) + Utils.getRandomPositiveNumber(INCREMENT_RANGE);
+        int[] progression = new int[ARRAY_RANGE];
+        int firstNumber = Utils.getRandomPositiveNumber(RANGE);
 
         for (int i = 0; i < progression.length; i++) {
             progression[i] = firstNumber + i * increment;

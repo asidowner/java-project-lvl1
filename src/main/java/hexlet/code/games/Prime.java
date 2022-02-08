@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class Prime {
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int RANGE = 100;
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
@@ -19,9 +20,8 @@ public class Prime {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 100;
 
-        int question = Utils.getRandomPositiveNumber(range);
+        int question = Utils.getRandomPositiveNumber(RANGE);
         String answer = isPrime(question) ? "yes" : "no";
 
         data.put(String.valueOf(question), answer);

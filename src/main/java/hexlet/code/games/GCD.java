@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class GCD {
     private static final String RULE = "Find the greatest common divisor of given numbers.";
+    private static final int RANGE = 500;
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
@@ -19,20 +20,22 @@ public class GCD {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 500;
+        int firstNumber = Utils.getRandomPositiveNumber(RANGE);
+        int secondNumber = Utils.getRandomPositiveNumber(RANGE);
 
-        int firstNumber = Utils.getRandomPositiveNumber(range);
-        int secondNumber = Utils.getRandomPositiveNumber(range);
-
-        int answer = 1;
-
-        for (int i = 1; i <= Math.min(firstNumber, secondNumber); i++) {
-            if (firstNumber % i == 0 && secondNumber % i == 0) {
-                answer = i;
-            }
-        }
+        int answer = getGCD(firstNumber, secondNumber);
 
         data.put(firstNumber + " " + secondNumber, String.valueOf(answer));
+    }
+
+    private static int getGCD(int firstNumber, int secondNumber) {
+        int result = 1;
+        for (int i = 1; i <= Math.min(firstNumber, secondNumber); i++) {
+            if (firstNumber % i == 0 && secondNumber % i == 0) {
+                result = i;
+            }
+        }
+        return result;
     }
 
 

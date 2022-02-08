@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class Even {
     private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int RANGE = 50;
 
     public static void startGame() {
         HashMap<String, String> questions = new HashMap<>();
@@ -19,9 +20,8 @@ public class Even {
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        final int range = 50;
 
-        int question = Utils.getRandomPositiveNumber(range);
+        int question = Utils.getRandomPositiveNumber(RANGE);
         String answer = question % 2 == 0 ? "yes" : "no";
         data.put(String.valueOf(question), answer);
     }
