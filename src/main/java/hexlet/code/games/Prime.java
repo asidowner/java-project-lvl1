@@ -10,13 +10,13 @@ public class Prime {
     private static final int RANGE = 100;
 
     public static void startGame() {
-        HashMap<String, String> questions = new HashMap<>();
+        HashMap<String, String> gameData = new HashMap<>();
 
-        while (questions.size() < Engine.ROUNDS) {
-            generateRoundData(questions);
+        while (gameData.size() < Engine.ROUNDS) {
+            generateRoundData(gameData);
         }
 
-        Engine.initGame(RULE, questions);
+        Engine.initGame(RULE, gameData);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {

@@ -11,13 +11,13 @@ public class Calc {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void startGame() {
-        HashMap<String, String> questions = new HashMap<>();
+        HashMap<String, String> gameData = new HashMap<>();
 
-        while (questions.size() < Engine.ROUNDS) {
-            generateRoundData(questions);
+        while (gameData.size() < Engine.ROUNDS) {
+            generateRoundData(gameData);
         }
 
-        Engine.initGame(RULE, questions);
+        Engine.initGame(RULE, gameData);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
@@ -42,7 +42,7 @@ public class Calc {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
             case '*' -> firstNumber * secondNumber;
-            default -> 0;
+            default -> throw new Error("Unknown operator for calc : " + operator);
         };
     }
 }

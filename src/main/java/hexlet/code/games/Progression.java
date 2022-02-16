@@ -10,19 +10,26 @@ public class Progression {
     private static final int RANGE = 100;
     private static final int INCREMENT_RANGE = RANGE / 4;
     private static final int ARRAY_RANGE = 10;
+    private static final int MIN_ARRAY_RANGE = 5;
 
     public static void startGame() {
-        HashMap<String, String> questions = new HashMap<>();
+        HashMap<String, String> gameData = new HashMap<>();
 
-        while (questions.size() < Engine.ROUNDS) {
-            generateRoundData(questions);
+        while (gameData.size() < Engine.ROUNDS) {
+            generateRoundData(gameData);
         }
 
-        Engine.initGame(RULE, questions);
+        Engine.initGame(RULE, gameData);
     }
 
     private static void generateRoundData(HashMap<String, String> data) {
-        int[] progression = getArithmeticProgression();
+
+        int increment = Utils.getRandomPositiveNumber(INCREMENT_RANGE) + Utils.getRandomPositiveNumber(INCREMENT_RANGE);
+        int firstNumber = Utils.getRandomPositiveNumber(RANGE);
+        int range  = MIN_ARRAY_RANGE + Utils.getRandomPositiveNumber(ARRAY_RANGE);
+
+        int[] progression = getArithmeticProgression(increment, firstNumber, range);
+
         int randomIndex = Utils.getRandomPositiveNumber(progression.length - 1);
         int answer = progression[randomIndex];
 
@@ -36,10 +43,8 @@ public class Progression {
     }
 
 
-    private static int[] getArithmeticProgression() {
-        int increment = Utils.getRandomPositiveNumber(INCREMENT_RANGE) + Utils.getRandomPositiveNumber(INCREMENT_RANGE);
-        int[] progression = new int[ARRAY_RANGE];
-        int firstNumber = Utils.getRandomPositiveNumber(RANGE);
+    private static int[] getArithmeticProgression(int firstNumber, int increment, int range) {
+        int[] progression = new int[range];
 
         for (int i = 0; i < progression.length; i++) {
             progression[i] = firstNumber + i * increment;

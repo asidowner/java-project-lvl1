@@ -6,7 +6,7 @@ import java.util.Scanner;
 public final class Engine {
     public static final int ROUNDS = 3;
 
-    public static void initGame(String rule, HashMap<String, String> questions) {
+    public static void initGame(String rule, HashMap<String, String> gameData) {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner scanner = new Scanner(System.in);
@@ -17,11 +17,11 @@ public final class Engine {
 
         System.out.println(rule);
 
-        for (String question : questions.keySet()) {
+        for (String question : gameData.keySet()) {
             System.out.printf("Question: %s\nYour answer: ", question);
 
             String answer = scanner.next();
-            String expectedAnswer = questions.get(question);
+            String expectedAnswer = gameData.get(question);
 
             if (!expectedAnswer.equals(answer)) {
                 System.out.printf("%s is wrong answer ;(. Correct answer was %s.\n", answer, expectedAnswer);

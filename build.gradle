@@ -25,14 +25,6 @@ compileJava {
     options.release = 16
 }
 
-dependencies {
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
-    testImplementation 'org.slf4j:slf4j-log4j12:2.0.0-alpha5'
-}
-
 test {
     useJUnitPlatform()
 }
